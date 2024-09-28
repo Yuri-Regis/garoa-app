@@ -14,6 +14,7 @@
 		10512F332CA0832C008FDF51 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 10512F322CA0832C008FDF51 /* Base */; };
 		10781EE32CA357F00015CE88 /* HourlyForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10781EE22CA357F00015CE88 /* HourlyForecastCollectionViewCell.swift */; };
 		10781EE52CA839A90015CE88 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10781EE42CA839A90015CE88 /* Color+Extensions.swift */; };
+		10781EE72CA848480015CE88 /* DailyForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10781EE62CA848480015CE88 /* DailyForecastTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		10512F342CA0832C008FDF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10781EE22CA357F00015CE88 /* HourlyForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCollectionViewCell.swift; sourceTree = "<group>"; };
 		10781EE42CA839A90015CE88 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		10781EE62CA848480015CE88 /* DailyForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				10512F2F2CA0832C008FDF51 /* Assets.xcassets */,
 				10512F312CA0832C008FDF51 /* LaunchScreen.storyboard */,
 				10512F342CA0832C008FDF51 /* Info.plist */,
+				10781EE62CA848480015CE88 /* DailyForecastTableViewCell.swift */,
 			);
 			path = "Weather App";
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				10781EE52CA839A90015CE88 /* Color+Extensions.swift in Sources */,
 				10512F2B2CA0832B008FDF51 /* ViewController.swift in Sources */,
+				10781EE72CA848480015CE88 /* DailyForecastTableViewCell.swift in Sources */,
 				10512F272CA0832B008FDF51 /* AppDelegate.swift in Sources */,
 				10781EE32CA357F00015CE88 /* HourlyForecastCollectionViewCell.swift in Sources */,
 				10512F292CA0832B008FDF51 /* SceneDelegate.swift in Sources */,
