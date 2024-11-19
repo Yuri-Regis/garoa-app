@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    
+    private var locationManager: CLLocationManager?
+    private var currentLocation: CLLocation?
     
     private lazy var backgroundView: UIImageView = {
         let imageView = UIImageView()
@@ -159,17 +163,47 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.startUpdatingLocation()
+        
         setupView()
         fetchData()
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        
+
+        currentLocation = location
+        print("Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
+        
+        fetchData()
+        
+        locationManager?.stopUpdatingLocation()
+    }
+
+    
     private func fetchData() {
+        guard let location = currentLocation else {
+            print("Localização não disponível")
+            return
+        }
+        
+        let city = City(lat: "\(location.coordinate.latitude)", lon: "\(location.coordinate.longitude)", name: "Localização Atual")
+        
         service.fetchData(city: city) { [weak self] response in
             self?.forecastResponse = response
             DispatchQueue.main.async{
                 self?.loadData()
             }
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Erro ao obter localização: \(error.localizedDescription)")
     }
     
     private func loadData() {
@@ -233,8 +267,8 @@ class ViewController: UIViewController {
             temperatureLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 12),
             temperatureLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 26),
             temperatureLabel.heightAnchor.constraint(equalToConstant: 71),
-            weatherIcon.heightAnchor.constraint(equalToConstant: 86),
-            weatherIcon.widthAnchor.constraint(equalToConstant: 86),
+            weatherIcon.heightAnchor.constraint(equalToConstant: 60),
+            weatherIcon.widthAnchor.constraint(equalToConstant: 60),
             weatherIcon.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -26),
             weatherIcon.centerYAnchor.constraint(equalTo: temperatureLabel.centerYAnchor),
             weatherIcon.leadingAnchor.constraint(equalTo: temperatureLabel.trailingAnchor, constant: 15)
