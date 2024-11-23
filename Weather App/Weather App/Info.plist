@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Precisamos da sua localização para mostrar a previsão do tempo.</string>
+	<key>CFBundleDisplayName</key>
+	<string>Tempo Certo</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
